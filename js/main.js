@@ -22,7 +22,7 @@ data.forEach((elem, i) => {
     a.href = `https://maptheclouds.com/playground/buildings-experiments/${elem.name}/`;
 
     const img = document.createElement('img');
-    img.src = `../${elem.name}/img/demo.gif`;
+    img.src = `/${elem.name}/img/demo.gif`;
     img.className = 'post-img';
 
     a.appendChild(img);
