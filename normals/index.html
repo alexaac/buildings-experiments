@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Display buildings in 3D</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+    <link
+      href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+    <link href="./css/maptiler-geocoder.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+    <!-- <div id="hour"></div>
+
+    <div class="quake-info">
+      <div><strong>Magnitude:</strong>&nbsp;<span id="mag"></span></div>
+      <div><strong>Location:</strong>&nbsp;<span id="loc"></span></div>
+      <div><strong>Date:</strong>&nbsp;<span id="date2"></span></div>
+    </div> -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+      integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- <script src="https://unpkg.com/three@0.106.2/build/three.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/94/three.min.js"></script>
+
+    <script src="https://unpkg.com/three@0.106.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://webglfundamentals.org/webgl/resources/m4.js"></script>
+    <script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
+
+    <script src="./js/libs/maptiler-geocoder.js"></script>
+
+    <script src="./js/libs/suncalc.js"></script>
+    <script src="./js/libs/gl-matrix.js"></script>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
