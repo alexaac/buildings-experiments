@@ -4,15 +4,15 @@
 
 ### Title
 
-Normals
+Rainbow
 
 ### Demo
 
-[https://maptheclouds.com/playground/buildings-experiments/normals/](https://maptheclouds.com/playground/buildings-experiments/normals/)
+[https://maptheclouds.com/playground/buildings-experiments/rainbow/](https://maptheclouds.com/playground/buildings-experiments/rainbow/)
 
 ### Description
 
-Color the buildings by their normals
+Color the buildings - rainbow
 
 ### Data sources
 
