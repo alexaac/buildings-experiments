@@ -14,8 +14,8 @@ Warning: spaghetti code ahead. Do not use in production :D
 
 ### Project Setup
 
-1. clone the Project - `git clone https://github.com/alexaac/buildings-experiment.git`
-2. open the project folder - `cd buildings-experiment`
+1. clone the Project - `git clone https://github.com/alexaac/buildings-experiments.git`
+2. open the project folder - `cd buildings-experiments`
 
    Serve html using a server or simply open the index.html file
 
