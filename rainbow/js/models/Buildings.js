@@ -1,6 +1,6 @@
-import { Program } from '../components/Program.js';
+import { Program } from '../../../js/components/Program.js';
 
-import utils from '../utils.js';
+import utils from '../../../js/utils.js';
 
 import extrudeVertexShader from '../shaders/extrude/vertex.js';
 import extrudeFragmentShader from '../shaders/extrude/fragment.js';

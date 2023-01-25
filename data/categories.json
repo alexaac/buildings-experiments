@@ -1,0 +1,29 @@
+[
+  {
+    "name": "normals",
+    "title": "Normals",
+    "type": "child",
+    "parent": "buildings-experiments",
+    "icon": "",
+    "description": " Normals  ",
+    "examples": [],
+    "finished": true
+  },
+  {
+    "name": "rainbow",
+    "title": "Rainbow",
+    "type": "child",
+    "parent": "buildings-experiments",
+    "icon": "",
+    "description": " Rainbow 🌈  ",
+    "examples": [],
+    "finished": true
+  },
+
+  {
+    "title": "3D Buildings Experiments",
+    "type": "parent",
+    "name": "buildings-experiments",
+    "description": " 3D Buildings Experiments in WebGL "
+  }
+]

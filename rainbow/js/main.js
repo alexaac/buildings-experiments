@@ -1,6 +1,6 @@
 import { Buildings } from './models/Buildings.js';
 
-import * as THREE from './build/three.module.js';
+import * as THREE from '../../js/build/three.module.js';
 
 const longitude = -74.012512161357,
   latitude = 40.706013850308665;
@@ -8,8 +8,8 @@ const longitude = -74.012512161357,
 const apiKey = 'wSVUkjoWKTD8fUSyzJd5';
 
 let styles = {
-  day: './styles/maptiler3d.json',
-  night: './styles/dark.json',
+  day: '../../../styles/maptiler3d.json',
+  night: '../../../styles/dark.json',
 };
 let selectedStyle = styles.day;
 

@@ -1,0 +1,388 @@
+@import url('./colors.css');
+/* @import url('./typography.css'); */
+
+@charset 'UTF-8';
+
+:root {
+  --x-small: 576px !default;
+  --small: 768px !default;
+  --medium: 992px !default;
+  --large: 1200px !default;
+  --x-large: 1440px !default;
+
+  --mobile: --x-small !default;
+  --tablet: --small !default;
+  --desktop: --medium !default;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Poppins';
+  background: rgb(27, 27, 31);
+  color: white;
+}
+
+.main-webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+.container {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 20vh;
+  display: grid;
+  place-content: center;
+}
+
+.content {
+  display: flex;
+  gap: 5em;
+  width: 100%;
+  padding-top: 1em;
+  position: relative;
+}
+
+.content:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid white;
+  transform: scaleX(1);
+}
+
+.content h1 {
+  font-size: 3rem;
+  width: 50vw;
+  text-align: right;
+}
+
+.content h1,
+.content p {
+  flex-basis: 0;
+  flex-grow: 1;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.content p {
+  font-size: 1.3rem;
+  width: 40vw;
+}
+
+#section-0 {
+  opacity: 0;
+}
+
+button {
+  font-size: 1.3rem;
+  padding: 0.5em 1em;
+  margin-top: 3em;
+  background-color: rgb(0, 114, 255);
+  border: none;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  font-family: 'Cabin', sans-serif;
+  color: #ffeded;
+  text-transform: uppercase;
+  font-size: 4vmin;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+section:nth-child(odd) {
+  justify-content: flex-end;
+}
+
+/* body:hover {
+  cursor: pointer;
+} */
+
+.point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.point:hover .text {
+  opacity: 1;
+}
+
+.point.visible .label {
+  transform: scale(1, 1);
+}
+
+.point .label {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #00000077;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+  line-height: 40px;
+  font-height: 100;
+  font-size: 14px;
+  cursor: help;
+  transform: scale(0, 0);
+  transition: transform 0.3s;
+}
+
+.point .text {
+  opacity: 0;
+  position: absolute;
+  top: 30px;
+  left: -100px;
+  width: 200px;
+  padding: 20px;
+  border-radius: 4px;
+  background: #00000077;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+  line-height: 1.3em;
+  font-weight: 100;
+  font-size: 14px;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.tooltip {
+  padding: 20px;
+  border-radius: 4px;
+  background: #00000077;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+  line-height: 1.3em;
+  font-weight: bold;
+  font-size: 14px;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: var(--color-primary);
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+a.btn:hover {
+  text-decoration: none;
+  background: var(--color-primary-darker);
+  outline: 0;
+}
+
+a.btn:disabled {
+  color: var(--color-neutral-400);
+  background-color: var(--color-neutral-300);
+  border-color: transparent;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  /* Extra small devices and small devices */
+  /* The type scale goes from 11.24(px)(0.702rem) to 28.83(px)(1.802rem).
+     Base size 16px, scale Major Second. */
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+.side-pannel {
+  z-index: 3000;
+  font-size: 12px;
+  pointer-events: none;
+
+  position: absolute;
+  bottom: 5px;
+}
+
+.side-pannel--left {
+  left: 10px;
+}
+
+.side-pannel--right {
+  right: 10px;
+}
+
+@media (max-width: 360px) {
+  .side-pannel--left {
+    left: 5px;
+  }
+
+  .side-pannel--right {
+    right: 0;
+  }
+}
+
+.control {
+  margin-right: 10px;
+  margin-top: 10px;
+  cursor: auto;
+  float: left;
+  clear: both;
+  position: relative;
+  z-index: 800;
+  pointer-events: visiblePainted;
+  pointer-events: auto;
+}
+
+.control a {
+  text-decoration: none;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: block;
+  height: 36px;
+  width: 50px;
+  line-height: 50px;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.control a:hover {
+  background-color: #f4f4f4;
+}
+
+.control-group a {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.control-group a:first-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.control-group a:last-child {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+/* http://alessioatzeni.com/metrize-icons/ */
+
+.play-icon {
+  background-image: url(../icons/play.svg);
+}
+
+.pause-icon {
+  background-image: url(../icons/pause.svg);
+}
+
+.circles-icon {
+  background-image: url(../icons/circles.svg);
+}
+
+.below {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items: center; */
+  flex-direction: column;
+  align-items: flex-end;
+  color: #838282;
+  font-size: 10px;
+  z-index: 2000;
+}
+
+.below div {
+  display: block;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.grabbable {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* Apply a 'closed-hand' cursor during drag operation. */
+.grabbable:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.hide-all {
+  visibility: hidden;
+}

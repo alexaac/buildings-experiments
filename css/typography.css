@@ -1,0 +1,211 @@
+/**
+ * Typography
+ */
+
+html {
+  font-size: 100%;
+} /*16px*/
+
+body {
+  font-family: 'Raleway', 'Arial', sans-serif;
+  font-weight: 400 !default;
+  line-height: 1.75 !default;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.title {
+  margin: 1.5rem 0;
+  font-family: 'Oswald', sans-serif;
+}
+
+h5,
+.title {
+  /* margin: 1rem 0; */
+  padding: 0 2rem;
+}
+
+.description {
+  padding: 0 2rem;
+}
+
+/* The type scale goes from 8.19px(px)(0.512rem) to 48.83px(px)(3.052rem).
+ Base size 16px, scale Major Third. */
+
+h1 {
+  margin-top: 0;
+  font-size: 3.052rem; /* 48.83px */
+}
+
+h2 {
+  font-size: 2.441rem; /* 39.06px */
+}
+
+h3,
+ms-post-category {
+  font-size: 1.953rem; /* 31.25px */
+}
+
+h4,
+.mps-article-category {
+  font-size: 1.563rem; /* 25.00px */
+}
+
+h5,
+.title {
+  font-size: 1.25rem; /* 20.00px */
+}
+
+p {
+  font-size: 1rem; /* 16.00px */
+}
+
+small,
+.helper-text {
+  font-size: 0.8rem; /* 12.80px */
+}
+
+.copyright-text {
+  font-size: 0.64rem; /* 10.24px */
+}
+
+.extra-small-text {
+  font-size: 0.512rem; /* 8.19px */
+}
+
+/* Font Weight*/
+.bold {
+  font-weight: bold;
+}
+
+/* Links */
+
+a,
+.mps-link {
+  color: var(--color-secondary);
+  text-decoration: none;
+  padding-bottom: 2px;
+  background-image: linear-gradient(
+      var(--color-secondary-transp),
+      var(--color-secondary-transp)
+    ),
+    linear-gradient(var(--color-secondary), var(--color-secondary));
+  background-repeat: no-repeat;
+  background-position: 0 100%, 0 100%;
+  background-size: 100% 1px, 0 1px;
+  transition-property: background-size;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+}
+
+a.top {
+  color: initial;
+  background-image: none;
+}
+
+a:hover,
+.mps-link:hover {
+  background-size: 100% 1px, 100% 1px;
+  text-decoration: none;
+}
+
+/* Blockquote */
+
+blockquote {
+  margin: 0;
+}
+
+blockquote p {
+  padding: 15px;
+  background: #eee;
+  border-radius: 5px;
+}
+
+blockquote p::before {
+  content: '\201C';
+}
+
+blockquote p::after {
+  content: '\201D';
+}
+
+.mps-article figcaption {
+  color: var(--color-primary);
+}
+
+mark {
+  color: var(--color-neutral-100);
+  background-color: var(--color-primary);
+}
+
+.title {
+  background-image: none;
+  text-decoration: none;
+}
+
+/* Code */
+
+.mps-code {
+  color: inherit;
+  font-size: inherit;
+  display: inline-block;
+  border-radius: 5px;
+  background-color: var(--color-neutral-200);
+  text-align: left;
+  white-space: pre-line;
+  position: relative;
+  word-break: normal;
+  word-wrap: normal;
+  padding: 0.3rem;
+  line-height: 1;
+}
+
+@media screen and (max-width: $tablet) {
+  /* Extra small devices and small devices */
+  /* The type scale goes from 11.24(px)(0.702rem) to 28.83(px)(1.802rem).
+     Base size 16px, scale Major Second. */
+
+  h1 {
+    margin-top: 0;
+    font-size: 1.802rem; /* 28.83px */
+  }
+
+  h2 {
+    font-size: 1.602rem; /* 25.63px */
+  }
+
+  h3,
+  .mps-post-category {
+    font-size: 1.424rem; /* 22.78px */
+  }
+
+  h4,
+  .mps-article-category {
+    font-size: 1.266rem; /* 20.25px */
+  }
+
+  h5,
+  .title {
+    font-size: 1.125rem; /* 18.00px */
+  }
+
+  p {
+    font-size: 1rem; /* 16.00px */
+  }
+
+  small,
+  .helper-text {
+    font-size: 0.889rem; /* 14.22px */
+  }
+
+  .copyright-text {
+    font-size: 0.79rem; /* 12.64px */
+  }
+
+  .extra-small-text {
+    font-size: 0.702rem; /* 11.24px */
+  }
+}
