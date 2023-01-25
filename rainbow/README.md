@@ -8,7 +8,7 @@ Normals
 
 ### Demo
 
-[https://maptheclouds.com/playground/buildings-experiment/normals/](https://maptheclouds.com/playground/buildings-experiment/normals/)
+[https://maptheclouds.com/playground/buildings-experiments/normals/](https://maptheclouds.com/playground/buildings-experiments/normals/)
 
 ### Description
 
