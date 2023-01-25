@@ -12,6 +12,8 @@ Warning: spaghetti code ahead. Do not use in production :D
 
 ### Interactive
 
+[https://maptheclouds.com/playground/buildings-experiments/](https://maptheclouds.com/playground/buildings-experiments/)
+
 ### Project Setup
 
 1. clone the Project - `git clone https://github.com/alexaac/buildings-experiments.git`
