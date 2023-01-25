@@ -1,12 +1,39 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Display buildings in 3D</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta charset="UTF-8" />
+    <meta content="utf-8" http-equiv="encoding" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Normals</title>
+
     <meta
-      name="viewport"
-      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+      property="og:title"
+      content="#30DayMapChallenge 2022 Extra. normals"
     />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="https://maptheclouds.com/playground/buildings-experiment/normals"
+    />
+    <meta property="og:description" content="#30DayMapChallenge on Twitter" />
+    <meta property="article:publisher" content="https://maptheclouds.com" />
+    <meta property="article:section" content="Graphic" />
+    <meta property="article:tag" content="Graphic" />
+    <meta
+      property="og:image"
+      content="https://maptheclouds.com/playground/buildings-experiment/normals/img/og_1505_968.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1505" />
+    <meta property="og:image:height" content="968" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:image"
+      content="https://maptheclouds.com/playground/buildings-experiment/normals/img/og_1505_968.png"
+    />
+
     <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
     <link
       href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css"
@@ -18,13 +45,6 @@
   </head>
   <body>
     <div id="map"></div>
-    <!-- <div id="hour"></div>
-
-    <div class="quake-info">
-      <div><strong>Magnitude:</strong>&nbsp;<span id="mag"></span></div>
-      <div><strong>Location:</strong>&nbsp;<span id="loc"></span></div>
-      <div><strong>Date:</strong>&nbsp;<span id="date2"></span></div>
-    </div> -->
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
@@ -33,7 +53,6 @@
       referrerpolicy="no-referrer"
     ></script>
 
-    <!-- <script src="https://unpkg.com/three@0.106.2/build/three.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/94/three.min.js"></script>
 
     <script src="https://unpkg.com/three@0.106.2/examples/js/loaders/GLTFLoader.js"></script>
@@ -41,7 +60,6 @@
     <script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
 
     <script src="./js/libs/maptiler-geocoder.js"></script>
-
     <script src="./js/libs/suncalc.js"></script>
     <script src="./js/libs/gl-matrix.js"></script>
     <script type="module" src="./js/main.js"></script>

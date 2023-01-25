@@ -1,12 +1,4 @@
-import utils from './utils.js';
-
-import { Antenna } from './models/Antenna.js';
 import { Buildings } from './models/Buildings.js';
-import { LightSphere_Three } from './models/LightSphere_Three.js';
-import { LightSphere } from './models/LightSphere.js';
-import { Triangle } from './models/Triangle.js';
-
-import { Viewer } from './components/Viewer.js';
 
 import * as THREE from './build/three.module.js';
 
@@ -55,7 +47,7 @@ const map = (window.map = new maplibregl.Map({
   center: [longitude, latitude],
   zoom: 16,
   pitch: 75,
-  bearing: 0,
+  bearing: 120,
   antialias: true,
 }));
 
