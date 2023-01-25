@@ -5,33 +5,7 @@ import * as THREE from './build/three.module.js';
 const longitude = -74.01376,
   latitude = 40.704988;
 
-// const longitude = -74.0077006,
-//   latitude = 40.7089788;
-
-// const longitude = 4.8959624,
-//   latitude = 52.3711013;
-
-// const longitude = -73.9980722,
-//   latitude = 40.7385579;
-
 const apiKey = 'wSVUkjoWKTD8fUSyzJd5';
-
-const point = { longitude: -74.0153125, latitude: 40.7026615 };
-var assetArr = [];
-assetArr.push({
-  id: 'sphere',
-  cord: {
-    lng: point.longitude,
-    lat: point.latitude,
-  },
-  url: 'https://docs.mapbox.com/mapbox-gl-js/assets/34M_17/34M_17.gltf',
-  scaleFactor: 3,
-  rad: 0.02,
-  origCoord: {
-    lng: longitude,
-    lat: latitude,
-  },
-});
 
 let styles = {
   day: './styles/maptiler3d.json',
@@ -152,31 +126,6 @@ map.on('load', function () {
       new Buildings('building-shadows', 'building-3d', parameters),
       'building-3d'
     );
-    // map.addLayer(new LightSphere('light-sphere', parameters), 'building-3d');
-
-    // map.addLayer(new Triangle('triangle'), 'building-3d');
-
-    // map.addLayer(
-    //   new Antenna(
-    //     assetArr[0].id,
-    //     assetArr[0].cord,
-    //     assetArr[0].url,
-    //     assetArr[0].scaleFactor,
-    //     parameters
-    //   )
-    // );
-
-    // map.addLayer(
-    //   new LightSphere_Three(
-    //     'light-sphere',
-    //     assetArr[0].cord,
-    //     assetArr[0].url,
-    //     assetArr[0].scaleFactor,
-
-    //     parameters
-    //   ),
-    //   'building-3d'
-    // );
 
     // Start the animation.
     animate(0);
@@ -232,17 +181,6 @@ function animate(timestamp) {
 //   }
 // }
 
-// map.on('click', (e) => {
-//   console.log(e.lngLat.wrap());
-
-//   map.removeLayer('sphere');
-//   map.addLayer(
-//     new Antenna(
-//       assetArr[0].id,
-//       e.lngLat.wrap(),
-//       assetArr[0].url,
-//       assetArr[0].scaleFactor,
-//       parameters
-//     )
-//   );
-// });
+map.on('click', (e) => {
+  console.log(e.lngLat.wrap());
+});
