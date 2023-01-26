@@ -38,6 +38,9 @@ const extrudeVertexShader = `
     vec3 normal2 = normalize(v_normal_0);
   
     v_normal = v_normal_0;
+    /// Object to world normal? ///
+    // v_normal =  mat3(u_model_view_matrix) * v_normal_0; 
+    
     v_eye_vector = -vec3(pos.xyz);
   }
 `;

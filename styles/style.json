@@ -1,0 +1,3769 @@
+{
+  "version": 8,
+  "id": "winter",
+  "name": "Winter",
+  "sources": {
+    "outdoor": {
+      "url": "https://api.maptiler.com/tiles/outdoor/tiles.json?key=wSVUkjoWKTD8fUSyzJd5",
+      "type": "vector"
+    },
+    "contours": {
+      "url": "https://api.maptiler.com/tiles/contours/tiles.json?key=wSVUkjoWKTD8fUSyzJd5",
+      "type": "vector"
+    },
+    "terrain-rgb": {
+      "url": "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=wSVUkjoWKTD8fUSyzJd5",
+      "tileSize": 512,
+      "type": "raster-dem"
+    },
+    "maptiler_planet": {
+      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=wSVUkjoWKTD8fUSyzJd5",
+      "type": "vector"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "minzoom": 0,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "background-color": {
+          "stops": [
+            [5, "rgba(244, 248, 249, 1)"],
+            [14, "rgba(238, 249, 249, 1)"]
+          ]
+        }
+      }
+    },
+    {
+      "id": "landcover_grass",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": {
+          "stops": [
+            [6, "rgba(217, 240, 242, 1)"],
+            [16, "rgba(235, 248, 249, 1)"]
+          ]
+        },
+        "fill-opacity": 0.3,
+        "fill-antialias": false
+      },
+      "metadata": {},
+      "filter": ["any", ["==", "class", "grass"]]
+    },
+    {
+      "id": "landcover_wood",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": "rgba(165, 199, 199, 1)",
+        "fill-opacity": 0.3,
+        "fill-antialias": true,
+        "fill-translate": [1, 1]
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "wood"]]
+    },
+    {
+      "id": "landcover_ice",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": "rgba(223, 255, 255, 1)",
+        "fill-opacity": {
+          "stops": [
+            [9, 0.55],
+            [16, 0.25]
+          ]
+        },
+        "fill-antialias": false
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "ice"]]
+    },
+    {
+      "id": "landcover_sand",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landcover",
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": "rgba(152, 249, 211, 0.57)",
+        "fill-opacity": 0.4,
+        "fill-antialias": false
+      },
+      "metadata": {},
+      "filter": ["all", ["in", "class", "sand"]]
+    },
+    {
+      "id": "globallandcover_grass",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 0,
+      "maxzoom": 9,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": "rgba(217, 240, 242, 1)",
+        "fill-opacity": {
+          "stops": [
+            [8, 0.6],
+            [9, 0.2]
+          ]
+        }
+      },
+      "filter": ["all", ["==", "class", "grass"]]
+    },
+    {
+      "id": "globallandcover_scrub",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 0,
+      "maxzoom": 9,
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "rgba(231, 249, 249, 1)", "fill-opacity": 1 },
+      "filter": ["all", ["==", "class", "scrub"]]
+    },
+    {
+      "id": "globallandcover_tree",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 0,
+      "maxzoom": 9,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": "rgba(165, 199, 199, 1)",
+        "fill-opacity": {
+          "stops": [
+            [0, 0.1],
+            [6, 0.15],
+            [10, 0.2]
+          ]
+        }
+      },
+      "filter": ["all", ["==", "class", "tree"]]
+    },
+    {
+      "id": "globallandcover_forest",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 0,
+      "maxzoom": 9,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": "rgba(150, 185, 185, 1)",
+        "fill-opacity": {
+          "stops": [
+            [0, 0.1],
+            [6, 0.15],
+            [10, 0.3]
+          ]
+        }
+      },
+      "filter": ["all", ["==", "class", "forest"]]
+    },
+    {
+      "id": "globallandcover_ice",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "globallandcover",
+      "minzoom": 0,
+      "maxzoom": 9,
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "rgba(237, 255, 255, 1)", "fill-opacity": 1 },
+      "filter": ["all", ["==", "class", "snow"]]
+    },
+    {
+      "id": "hillshade",
+      "type": "hillshade",
+      "source": "terrain-rgb",
+      "minzoom": 3,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "hillshade-accent-color": "rgba(229, 242, 251, 1)",
+        "hillshade-exaggeration": {
+          "stops": [
+            [3, 0.3],
+            [6, 0.25],
+            [9, 0.25],
+            [12, 0.55],
+            [16, 0.45]
+          ]
+        },
+        "hillshade-shadow-color": "rgba(73, 87, 138, 1)",
+        "hillshade-highlight-color": "rgba(170, 225, 228, 1)"
+      }
+    },
+    {
+      "id": "landuse_residential",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "maxzoom": 18,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": {
+          "stops": [
+            [1, "rgba(255, 255, 255, 1)"],
+            [12, "rgba(255, 255, 255, .75)"],
+            [16, "rgba(255, 255, 255, .5)"],
+            [18, "rgba(255, 255, 255, .15)"]
+          ]
+        },
+        "fill-opacity": 1
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        ["in", "class", "residential", "suburb", "neighbourhood"]
+      ]
+    },
+    {
+      "id": "landuse_industrial",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 10,
+      "maxzoom": 22,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": {
+          "stops": [
+            [6, "rgba(231, 231, 231, 1)"],
+            [12, "rgba(225, 225, 225, 1)"]
+          ]
+        },
+        "fill-opacity": 0.5
+      },
+      "metadata": {},
+      "filter": [
+        "any",
+        ["==", "class", "industrial"],
+        ["==", "class", "commercial"],
+        ["==", "class", "retail"],
+        ["==", "class", "stadium"]
+      ]
+    },
+    {
+      "id": "landuse_cemetery",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 10,
+      "maxzoom": 22,
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "rgba(183, 209, 209, 1)", "fill-opacity": 0.5 },
+      "metadata": {},
+      "filter": ["==", "class", "cemetery"]
+    },
+    {
+      "id": "landuse_hospital",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "landuse",
+      "minzoom": 10,
+      "maxzoom": 22,
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "rgba(229, 222, 244, 1)", "fill-opacity": 0.5 },
+      "metadata": {},
+      "filter": ["==", "class", "hospital"]
+    },
+    {
+      "id": "parks",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "park",
+      "minzoom": 6,
+      "maxzoom": 24,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": {
+          "stops": [
+            [6, "rgba(149, 226, 218, 0.1)"],
+            [14, "rgba(141, 214, 206, 0.05)"]
+          ]
+        },
+        "fill-opacity": 1,
+        "fill-antialias": true,
+        "fill-outline-color": "rgba(0, 255, 241, 0)"
+      }
+    },
+    {
+      "id": "contour_index",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contour",
+      "minzoom": 10,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(68, 106, 154, 1)",
+        "line-width": {
+          "stops": [
+            [10, 0.8],
+            [14, 1.3]
+          ]
+        },
+        "line-opacity": {
+          "stops": [
+            [10, 0.3],
+            [14, 0.25]
+          ]
+        }
+      },
+      "filter": ["all", [">", "height", 0], ["in", "nth_line", 10, 5]]
+    },
+    {
+      "id": "contour",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contour",
+      "minzoom": 11,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(77, 122, 174, 1)",
+        "line-width": 0.8,
+        "line-opacity": {
+          "stops": [
+            [10, 0.2],
+            [14, 0.2]
+          ]
+        }
+      },
+      "filter": ["all", ["!in", "nth_line", 10, 5], [">", "height", 0]]
+    },
+    {
+      "id": "contour_label",
+      "type": "symbol",
+      "source": "contours",
+      "source-layer": "contour",
+      "layout": {
+        "text-font": ["Noto Sans Italic"],
+        "text-size": {
+          "base": 1,
+          "stops": [
+            [15, 9.5],
+            [20, 12]
+          ]
+        },
+        "text-field": "{height}",
+        "visibility": "visible",
+        "text-padding": 10,
+        "symbol-placement": "line",
+        "symbol-avoid-edges": true,
+        "text-allow-overlap": false,
+        "text-ignore-placement": false,
+        "text-rotation-alignment": "map"
+      },
+      "paint": {
+        "text-color": "rgba(73, 120, 176, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(255, 254, 237, 1)",
+        "text-halo-width": 0.5
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "nth_line", 10, 5],
+        [">", "height", 0]
+      ]
+    },
+    {
+      "id": "waterway_tunnel",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "waterway",
+      "minzoom": 0,
+      "layout": { "line-cap": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [6, "rgba(119, 165, 203, 0.62)"],
+            [14, "rgba(151, 207, 222, 1)"]
+          ]
+        },
+        "line-width": {
+          "base": 1.3,
+          "stops": [
+            [13, 1],
+            [20, 10]
+          ]
+        },
+        "line-dasharray": [2, 4]
+      },
+      "filter": ["all", ["==", "brunnel", "tunnel"]]
+    },
+    {
+      "id": "waterway_river",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "waterway",
+      "layout": { "line-cap": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [6, "rgba(164, 210, 244, 1)"],
+            [14, "rgba(151, 207, 222, 1)"]
+          ]
+        },
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [11, 1],
+            [20, 18]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "class", "river"],
+        ["!=", "brunnel", "tunnel"],
+        ["!=", "intermittent", 1]
+      ]
+    },
+    {
+      "id": "waterway_river_intermittent",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "waterway",
+      "layout": { "line-cap": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [6, "rgba(164, 210, 244, 1)"],
+            [9, "rgba(176, 218, 255, 1)"]
+          ]
+        },
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [11, 1],
+            [20, 18]
+          ]
+        },
+        "line-dasharray": [2, 1.6]
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "class", "river"],
+        ["!=", "brunnel", "tunnel"],
+        ["==", "intermittent", 1]
+      ]
+    },
+    {
+      "id": "waterway_other",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "waterway",
+      "layout": { "line-cap": "butt", "visibility": "visible" },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [6, "rgba(174, 222, 238, 1)"],
+            [14, "rgba(151, 207, 222, 1)"]
+          ]
+        },
+        "line-width": {
+          "base": 1.3,
+          "stops": [
+            [13, 0.5],
+            [20, 10]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["!=", "class", "river"],
+        ["!=", "brunnel", "tunnel"],
+        ["!=", "intermittent", 1]
+      ]
+    },
+    {
+      "id": "waterway_other_intermittent",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "waterway",
+      "layout": { "line-cap": "butt", "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(151, 207, 222, 1)",
+        "line-width": {
+          "base": 1.3,
+          "stops": [
+            [13, 0.5],
+            [20, 10]
+          ]
+        },
+        "line-dasharray": [4, 3]
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["!=", "class", "river"],
+        ["!=", "brunnel", "tunnel"],
+        ["==", "intermittent", 1]
+      ]
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "water",
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": {
+          "stops": [
+            [6, "rgba(174, 222, 238, 1)"],
+            [14, "rgba(151, 207, 222, 1)"]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": ["all", ["!=", "intermittent", 1]]
+    },
+    {
+      "id": "water_intermittent",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "water",
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "rgba(174, 222, 238, 1)", "fill-opacity": 1 },
+      "metadata": {},
+      "filter": ["all", ["==", "intermittent", 1]]
+    },
+    {
+      "id": "aeroway_fill",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "aeroway",
+      "minzoom": 11,
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "rgba(228, 240, 239, 1)", "fill-opacity": 1 },
+      "metadata": {},
+      "filter": ["==", "$type", "Polygon"]
+    },
+    {
+      "id": "aeroway_runway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "aeroway",
+      "minzoom": 11,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(193, 207, 207, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [11, 3],
+            [20, 16]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "runway"]
+      ]
+    },
+    {
+      "id": "aeroway_taxiway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "aeroway",
+      "minzoom": 11,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(211, 211, 211, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [11, 0.5],
+            [20, 6]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "taxiway"]
+      ]
+    },
+    {
+      "id": "ferry",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "layout": { "line-join": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(136, 166, 214, 1)",
+        "line-width": 1.1,
+        "line-dasharray": [2, 2]
+      },
+      "filter": ["all", ["in", "class", "ferry"]]
+    },
+    {
+      "id": "tunnel_road_path",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "layout": { "line-join": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [14, 0.5],
+            [16, 1.3],
+            [20, 2]
+          ]
+        },
+        "line-opacity": 0.5,
+        "line-dasharray": [2, 2]
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "class", "path", "pedestrian"],
+        ["==", "brunel", "tunnel"]
+      ]
+    },
+    {
+      "id": "tunnel_road_minor",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(195, 195, 195, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [12, 0.5],
+            [18, 11],
+            [22, 13]
+          ]
+        },
+        "line-opacity": 0.4
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["in", "brunnel", "tunnel"],
+        ["in", "class", "minor", "service", "track", "pier"]
+      ]
+    },
+    {
+      "id": "tunnel_road_major",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(187, 187, 187, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [9, 0],
+            [14, 3],
+            [18, 12],
+            [22, 14]
+          ]
+        },
+        "line-opacity": 0.4
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["in", "class", "primary", "trunk", "secondary", "tertiary"],
+        ["in", "brunnel", "tunnel"]
+      ]
+    },
+    {
+      "id": "tunnel_motorway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(211, 211, 211, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [5, 0.5],
+            [7, 1],
+            [14, 5],
+            [18, 16],
+            [22, 18]
+          ]
+        },
+        "line-opacity": 0.3
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["in", "brunnel", "tunnel"],
+        ["==", "class", "motorway"]
+      ]
+    },
+    {
+      "id": "tunnel_rail",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [8, "rgba(127, 127, 127, 1)"],
+            [12, "rgba(156, 156, 156, 1)"],
+            [14, "rgba(102, 102, 102, 1)"],
+            [16, "rgba(61, 61, 61, 1)"]
+          ]
+        },
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [8, 0.4],
+            [15, 0.75],
+            [20, 3]
+          ]
+        },
+        "line-opacity": 0.3
+      },
+      "metadata": {},
+      "filter": ["all", ["in", "brunnel", "tunnel"], ["==", "class", "rail"]]
+    },
+    {
+      "id": "road_area_bridge",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": "rgba(242, 242, 242, 1)",
+        "fill-opacity": 0.5,
+        "fill-antialias": true,
+        "fill-outline-color": "rgba(242, 242, 242, 1)"
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "$type", "Polygon"], ["==", "brunnel", "bridge"]]
+    },
+    {
+      "id": "road_area_pier",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": "rgba(242, 243, 242, 1)",
+        "fill-antialias": true
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "$type", "Polygon"], ["==", "class", "pier"]]
+    },
+    {
+      "id": "road_path_casing",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "layout": { "line-join": "round", "visibility": "visible" },
+      "paint": {
+        "line-blur": 2,
+        "line-color": "rgba(195, 195, 195, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [14, 1],
+            [16, 4],
+            [20, 8]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "class", "path", "pedestrian"]
+      ]
+    },
+    {
+      "id": "road_path",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "layout": { "line-join": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [14, 0.5],
+            [16, 1.3],
+            [20, 2]
+          ]
+        },
+        "line-dasharray": [1.5, 0.5]
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "class", "path", "pedestrian"],
+        ["!=", "brunel", "tunnel"]
+      ]
+    },
+    {
+      "id": "road_minor",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(195, 195, 195, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [12, 0.5],
+            [18, 11],
+            [22, 13]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["!in", "brunnel", "tunnel"],
+        ["in", "class", "minor", "service", "track", "pier"]
+      ]
+    },
+    {
+      "id": "road_major",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(187, 187, 187, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [9, 0],
+            [14, 3],
+            [18, 12],
+            [22, 14]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["in", "class", "primary", "trunk", "secondary", "tertiary"],
+        ["!=", "brunnel", "tunnel"]
+      ]
+    },
+    {
+      "id": "road_motorway",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 5,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(211, 211, 211, 1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [5, 0.5],
+            [7, 1],
+            [14, 5],
+            [18, 16],
+            [22, 18]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["!in", "brunnel", "tunnel"],
+        ["in", "class", "motorway"]
+      ]
+    },
+    {
+      "id": "road_rail",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [8, "rgba(127, 127, 127, 1)"],
+            [12, "rgba(156, 156, 156, 1)"],
+            [14, "rgba(102, 102, 102, 1)"],
+            [16, "rgba(61, 61, 61, 1)"]
+          ]
+        },
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [8, 0.4],
+            [15, 0.75],
+            [20, 3]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": ["all", ["!in", "brunnel", "tunnel"], ["==", "class", "rail"]]
+    },
+
+    {
+      "id": "building",
+      "type": "fill",
+      "source": "maptiler_planet",
+      "source-layer": "building",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": {
+          "stops": [
+            [13, "rgba(194, 226, 226, 1)"],
+            [18, "rgba(114, 137, 137, 1)"]
+          ]
+        },
+        "fill-antialias": true,
+        "fill-outline-color": {
+          "stops": [
+            [13, "rgba(168, 232, 236, 1)"],
+            [18, "rgba(0, 244, 253, 1)"]
+          ]
+        }
+      },
+      "filter": ["all"]
+    },
+    {
+      "id": "building-3d",
+      "type": "fill-extrusion",
+      "source": "maptiler_planet",
+      "source-layer": "building",
+      "filter": ["all", ["!has", "hide_3d"]],
+      "paint": {
+        "fill-extrusion-base": {
+          "property": "render_min_height",
+          "type": "identity"
+        },
+        "fill-extrusion-color": [
+          "case",
+          ["has", "colour"],
+          ["get", "colour"],
+          "hsl(39, 41%, 86%)"
+        ],
+        "fill-extrusion-height": {
+          "property": "render_height",
+          "type": "identity"
+        },
+        "fill-extrusion-opacity": 1.0
+      }
+    },
+    {
+      "id": "ski_slope_easy_polygon",
+      "type": "fill",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 14,
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "rgba(45, 128, 207, 0.33)" },
+      "filter": [
+        "all",
+        ["==", "difficulty", "easy"],
+        ["==", "$type", "Polygon"]
+      ]
+    },
+    {
+      "id": "ski_slope_intermediate_polygon",
+      "type": "fill",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 13,
+      "paint": { "fill-color": "rgba(211, 63, 63, 0.33)" },
+      "filter": [
+        "all",
+        ["==", "difficulty", "intermediate"],
+        ["==", "$type", "Polygon"]
+      ]
+    },
+    {
+      "id": "ski_slope_advanced_polygon",
+      "type": "fill",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 13,
+      "paint": { "fill-color": "rgba(9, 9, 9, 0.34)" },
+      "filter": [
+        "all",
+        ["==", "difficulty", "advanced"],
+        ["==", "$type", "Polygon"]
+      ]
+    },
+    {
+      "id": "ski_slope_novice_polygon",
+      "type": "fill",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 13,
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "rgba(42, 181, 19, 0.34)" },
+      "filter": [
+        "all",
+        ["==", "difficulty", "novice"],
+        ["==", "$type", "Polygon"]
+      ]
+    },
+    {
+      "id": "ski_slope_casing",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 2],
+            [14, 0]
+          ]
+        },
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {
+          "stops": [
+            [10, 2],
+            [14, 4],
+            [22, 12]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "class", "downhill", "nordic", "sled", "skitour", "hike"]
+      ]
+    },
+    {
+      "id": "ski_slope_novice",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "maxzoom": 24,
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 1],
+            [14, 0]
+          ]
+        },
+        "line-color": "rgba(42, 181, 19, 1)",
+        "line-width": {
+          "stops": [
+            [10, 0.2],
+            [14, 2],
+            [22, 8]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["==", "difficulty", "novice"],
+        ["==", "$type", "LineString"],
+        ["==", "class", "downhill"]
+      ]
+    },
+    {
+      "id": "ski_slope_easy",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 1],
+            [14, 0]
+          ]
+        },
+        "line-color": "rgba(45, 128, 207, 1)",
+        "line-width": {
+          "stops": [
+            [10, 0.2],
+            [14, 2],
+            [22, 6]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["==", "difficulty", "easy"],
+        ["==", "$type", "LineString"],
+        ["==", "class", "downhill"]
+      ]
+    },
+    {
+      "id": "ski_slopes_intermediate",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "maxzoom": 24,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 1],
+            [14, 0]
+          ]
+        },
+        "line-color": "rgba(211, 63, 63, 1)",
+        "line-width": {
+          "stops": [
+            [10, 0.2],
+            [14, 2],
+            [22, 6]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["==", "difficulty", "intermediate"],
+        ["==", "$type", "LineString"],
+        ["==", "class", "downhill"]
+      ]
+    },
+    {
+      "id": "ski_slopes_advanced",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "maxzoom": 24,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "line-miter-limit": 3
+      },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 1],
+            [14, 0]
+          ]
+        },
+        "line-color": "rgba(7, 7, 7, 1)",
+        "line-width": {
+          "stops": [
+            [10, 0.2],
+            [14, 2],
+            [22, 6]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["in", "difficulty", "advanced", "expert"],
+        ["==", "$type", "LineString"],
+        ["==", "class", "downhill"]
+      ]
+    },
+    {
+      "id": "ski_tour_casing",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 16,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "visibility": "visible",
+        "line-miter-limit": 3
+      },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 1],
+            [14, 0]
+          ]
+        },
+        "line-color": "rgba(194, 192, 249, 1)",
+        "line-width": {
+          "stops": [
+            [10, 1.6],
+            [14, 3],
+            [22, 8]
+          ]
+        },
+        "line-offset": 0
+      },
+      "filter": ["all", ["==", "class", "skitour"]]
+    },
+    {
+      "id": "ski_tour",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 0,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "visibility": "visible",
+        "line-miter-limit": 3
+      },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 1],
+            [14, 0]
+          ]
+        },
+        "line-color": {
+          "stops": [
+            [10, "rgba(232, 232, 255, 1)"],
+            [22, "rgba(103, 96, 218, 1)"]
+          ]
+        },
+        "line-width": {
+          "stops": [
+            [10, 0.2],
+            [14, 2],
+            [22, 6]
+          ]
+        },
+        "line-offset": 0,
+        "line-dasharray": [1, 0]
+      },
+      "filter": ["all", ["in", "class", "skitour", "hike"]]
+    },
+    {
+      "id": "ski_sled",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "maxzoom": 24,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "line-miter-limit": 3
+      },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 1],
+            [14, 0]
+          ]
+        },
+        "line-color": "rgba(214, 107, 234, 1)",
+        "line-width": {
+          "stops": [
+            [10, 0.2],
+            [14, 2],
+            [22, 6]
+          ]
+        }
+      },
+      "filter": ["all", ["==", "$type", "LineString"], ["==", "class", "sled"]]
+    },
+    {
+      "id": "ski_snowpark",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "maxzoom": 24,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible",
+        "line-miter-limit": 3
+      },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 1],
+            [14, 0]
+          ]
+        },
+        "line-color": "rgba(158, 75, 209, 1)",
+        "line-width": {
+          "stops": [
+            [10, 0.2],
+            [14, 2],
+            [22, 6]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "snow_park"]
+      ]
+    },
+    {
+      "id": "ski_freeride",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 0,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "visibility": "visible",
+        "line-miter-limit": 3
+      },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 1],
+            [14, 0]
+          ]
+        },
+        "line-color": "rgba(161, 161, 166, 1)",
+        "line-width": {
+          "stops": [
+            [10, 0.2],
+            [14, 2],
+            [22, 6]
+          ]
+        },
+        "line-offset": 0,
+        "line-dasharray": [1, 0]
+      },
+      "filter": ["all", ["==", "difficulty", "freeride"]]
+    },
+    {
+      "id": "ski_nordic_trail",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "maxzoom": 24,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "line-miter-limit": 3
+      },
+      "paint": {
+        "line-blur": {
+          "stops": [
+            [11, 1],
+            [14, 0]
+          ]
+        },
+        "line-color": "rgba(98, 215, 222, 1)",
+        "line-width": {
+          "stops": [
+            [10, 0.2],
+            [14, 2],
+            [22, 6]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "nordic"]
+      ]
+    },
+    {
+      "id": "ski_lifts-casing",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(244, 244, 244, 1)",
+        "line-width": {
+          "stops": [
+            [14, 2],
+            [18, 5]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["==", "class", "lift"],
+        [
+          "in",
+          "subclass",
+          "drag_lift",
+          "j-bar",
+          "magic_carpet",
+          "mixed_lift",
+          "platter",
+          "rope_tow",
+          "t-bar"
+        ],
+        ["==", "$type", "LineString"]
+      ]
+    },
+    {
+      "id": "ski_lifts",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(92, 92, 92, 1)",
+        "line-width": {
+          "stops": [
+            [14, 1.2],
+            [18, 2]
+          ]
+        },
+        "line-dasharray": [2, 2]
+      },
+      "filter": [
+        "all",
+        ["==", "class", "lift"],
+        [
+          "in",
+          "subclass",
+          "drag_lift",
+          "j-bar",
+          "magic_carpet",
+          "mixed_lift",
+          "platter",
+          "rope_tow",
+          "t-bar"
+        ],
+        ["==", "$type", "LineString"]
+      ]
+    },
+    {
+      "id": "ski_avalanche_fence",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 0,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "visibility": "visible",
+        "line-miter-limit": 3
+      },
+      "paint": {
+        "line-color": "rgba(155, 156, 156, 1)",
+        "line-width": {
+          "stops": [
+            [10, 0.5],
+            [14, 1.5],
+            [18, 4]
+          ]
+        },
+        "line-offset": 0,
+        "line-dasharray": [1, 0]
+      },
+      "filter": [
+        "all",
+        ["==", "class", "avalanche"],
+        ["==", "subclass", "fence"]
+      ]
+    },
+    {
+      "id": "ski_chair_lift",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "layout": { "line-cap": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(92, 92, 92, 1)",
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [11, 2],
+            [19, 4.5]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["==", "class", "lift"],
+        ["==", "subclass", "chair_lift"]
+      ]
+    },
+    {
+      "id": "ski_chair_lift_dash",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "layout": { "line-cap": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(244, 244, 244, 1)",
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [11, 1.5],
+            [19, 3.5]
+          ]
+        },
+        "line-dasharray": [1.5, 2.5]
+      },
+      "filter": [
+        "all",
+        ["==", "class", "lift"],
+        ["==", "subclass", "chair_lift"]
+      ]
+    },
+    {
+      "id": "cablecar",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "layout": { "line-cap": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(92, 92, 92, 1)",
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [11, 3],
+            [19, 4.5]
+          ]
+        }
+      },
+      "filter": ["all", ["in", "subclass", "gondola", "funicular", "cable_car"]]
+    },
+    {
+      "id": "cablecar-dash",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "transportation",
+      "minzoom": 12,
+      "maxzoom": 24,
+      "layout": { "line-cap": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": "rgba(244, 244, 244, 1)",
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [11, 2.5],
+            [19, 4]
+          ]
+        },
+        "line-dasharray": [2, 3]
+      },
+      "filter": ["all", ["in", "subclass", "gondola", "funicular", "cable_car"]]
+    },
+    {
+      "id": "outdoor_poi_parking",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 15,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [13, 0.7],
+            [18, 1]
+          ]
+        },
+        "text-font": ["Open Sans Regular", "Noto Sans Regular"],
+        "icon-image": "parking",
+        "text-optional": true
+      },
+      "filter": ["all", ["==", "class", "parking"]]
+    },
+    {
+      "id": "outdoor_poi_bench",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 16,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [16, 0.7],
+            [20, 1]
+          ]
+        },
+        "icon-image": "bench",
+        "visibility": "visible",
+        "icon-anchor": "bottom"
+      },
+      "filter": ["all", ["==", "$type", "Point"], ["==", "class", "bench"]]
+    },
+    {
+      "id": "outdoor_poi_drinking_water",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 16,
+      "layout": {
+        "icon-size": 1,
+        "icon-image": "drinking-water",
+        "visibility": "visible"
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "class", "drinking_water"]
+      ]
+    },
+    {
+      "id": "outdoor_poi_guidepost",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 14,
+      "layout": {
+        "icon-size": 1,
+        "icon-image": "guidepost",
+        "visibility": "visible",
+        "icon-anchor": "bottom"
+      },
+      "filter": ["all", ["==", "$type", "Point"], ["==", "class", "guidepost"]]
+    },
+    {
+      "id": "outdoor_poi_spring",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 16,
+      "layout": {
+        "icon-size": 1,
+        "icon-image": "spring",
+        "visibility": "visible"
+      },
+      "filter": ["all", ["==", "$type", "Point"], ["in", "class", "spring"]]
+    },
+    {
+      "id": "outdoor_poi_waterfall",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 12,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "waterfall",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(39, 53, 63, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "$type", "Point"], ["==", "class", "waterfall"]]
+    },
+    {
+      "id": "outdoor_poi_cave",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 13,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "cave-entrance",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "icon-color": "rgba(38, 33, 24, 1)",
+        "text-color": "rgba(39, 53, 63, 1)",
+        "icon-halo-blur": 0.2,
+        "text-halo-blur": 0.2,
+        "icon-halo-color": "rgba(255, 255, 255, 1)",
+        "icon-halo-width": 1,
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "class", "cave_entrance"]
+      ]
+    },
+    {
+      "id": "outdoor_poi_viewpoint",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 13,
+      "layout": {
+        "icon-size": 1.2,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [10, 14],
+            [12, 18],
+            [14, 20],
+            [16, 22]
+          ]
+        },
+        "icon-image": "viewpoint",
+        "text-field": "",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(39, 53, 63, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "$type", "Point"], ["==", "class", "viewpoint"]]
+    },
+    {
+      "id": "outdoor_poi_picnic_site",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 14,
+      "layout": {
+        "icon-size": 1,
+        "icon-image": "picnic",
+        "visibility": "visible"
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "class", "picnic_site"]
+      ]
+    },
+    {
+      "id": "outdoor_poi_camp_site",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "camp-site",
+        "text-field": {
+          "stops": [
+            [13, ""],
+            [14, "{name}"]
+          ]
+        },
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(39, 53, 63, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "class", "campsite"],
+        ["==", "subclass", "camp_site"]
+      ]
+    },
+    {
+      "id": "outdoor_poi_hut",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 14,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "hut",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(39, 53, 63, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "$type", "Point"], ["==", "class", "hut"]]
+    },
+    {
+      "id": "outdoor_poi_shelter",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 13,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "shelter",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(39, 53, 63, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "$type", "Point"], ["in", "class", "shelter"]]
+    },
+    {
+      "id": "outdoor_poi_map",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 16,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "icon-image": "board-map",
+        "visibility": "visible",
+        "icon-anchor": "bottom"
+      },
+      "filter": ["all", ["==", "$type", "Point"], ["==", "class", "map"]]
+    },
+    {
+      "id": "outdoor_poi_board",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 15,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "icon-image": "board-text",
+        "visibility": "visible",
+        "icon-anchor": "bottom"
+      },
+      "filter": ["all", ["==", "$type", "Point"], ["==", "class", "board"]]
+    },
+    {
+      "id": "outdoor_poi_memorial_monument",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 15,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "memorial-monument",
+        "text-field": "",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(39, 53, 63, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "metadata": {},
+      "filter": ["all", ["in", "class", "memorial", "monument"]]
+    },
+    {
+      "id": "outdoor_poi_ruins",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 14,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "ruins",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(39, 53, 63, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "ruins"]]
+    },
+    {
+      "id": "outdoor_poi_fortress",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 13,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "fortress",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(39, 53, 63, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "fortress"]]
+    },
+    {
+      "id": "outdoor_poi_castle",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 13,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [12, 0.85],
+            [16, 1.2]
+          ]
+        },
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "castle",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(39, 53, 63, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "castle"]]
+    },
+    {
+      "id": "outdoor_poi_church",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "church",
+        "text-field": {
+          "stops": [
+            [14, ""],
+            [18, "{name}"]
+          ]
+        },
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(31, 43, 53, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "filter": [
+        "all",
+        ["==", "class", "place_of_worship"],
+        ["==", "subclass", "christian"]
+      ]
+    },
+    {
+      "id": "outdoor_poi_hospital",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "hospital",
+        "text-field": "{name}",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -2],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(179, 13, 13, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "class", "hospital"]]
+    },
+    {
+      "id": "outdoor_poi_pharmacy",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "dot_g",
+        "text-field": "{name}",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(10, 25, 38, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(187, 232, 181, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "class", "pharmacy"]]
+    },
+    {
+      "id": "outdoor_poi_toilet",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "toilets",
+        "text-field": "{name}",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(39, 53, 63, 1)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "class", "toilets"]]
+    },
+    {
+      "id": "outdoor_poi_snow_cannon",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 14,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [14, 0.75],
+            [18, 1]
+          ]
+        },
+        "icon-image": "snow_cannon",
+        "visibility": "visible",
+        "icon-anchor": "bottom"
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "class", "snow_cannon"]
+      ]
+    },
+    {
+      "id": "outdoor_poi_rental",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [16, 11],
+            [22, 14]
+          ]
+        },
+        "icon-image": "dot_s",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(10, 25, 38, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(159, 250, 255, 1)",
+        "text-halo-width": 0.5
+      },
+      "filter": [
+        "all",
+        ["==", "class", "shop"],
+        ["==", "subclass", "sports"],
+        ["has", "name"]
+      ]
+    },
+    {
+      "id": "outdoor_poi_restaurant",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [16, 11],
+            [22, 14]
+          ]
+        },
+        "icon-image": "dot_r",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "rgba(10, 25, 38, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(244, 244, 210, 1)",
+        "text-halo-width": 0.5
+      },
+      "filter": [
+        "all",
+        ["in", "class", "restaurant", "bar", "cafe"],
+        ["has", "name"]
+      ]
+    },
+    {
+      "id": "outdoor_poi_skischool",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 13,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "ski_school",
+        "text-field": "{name}",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, 0],
+        "text-anchor": "top",
+        "text-max-width": 15
+      },
+      "paint": {
+        "text-color": "rgba(10, 25, 38, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(193, 236, 255, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "class", "ski_school"]]
+    },
+    {
+      "id": "outdoor_poi_tourist_info",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 13,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": 12,
+        "icon-image": "information",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -3],
+        "text-anchor": "top",
+        "text-letter-spacing": 0.07
+      },
+      "paint": {
+        "text-color": "rgba(30, 45, 53, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1.5
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "class", "info_office"]
+      ]
+    },
+    {
+      "id": "transport_bus",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 15,
+      "layout": {
+        "text-font": ["Roboto Regular", "Noto Sans Regular"],
+        "icon-image": "bus-stop",
+        "text-field": " ",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, -8],
+        "icon-padding": 0
+      },
+      "paint": {
+        "text-color": "rgba(46, 21, 1, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "bus"], ["==", "subclass", "bus_stop"]]
+    },
+    {
+      "id": "transport_railway",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Regular", "Noto Sans Regular"],
+        "text-size": {
+          "stops": [
+            [6, 11],
+            [14, 13],
+            [16, 15]
+          ]
+        },
+        "icon-image": "square",
+        "text-field": {
+          "stops": [
+            [11, " "],
+            [12, "{name:latin}"]
+          ]
+        },
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": {
+          "stops": [
+            [12, [0, -5]],
+            [16, [0, -10]]
+          ]
+        },
+        "icon-padding": 0,
+        "text-max-width": {
+          "stops": [
+            [14, 15],
+            [18, 25]
+          ]
+        },
+        "text-line-height": 0.9
+      },
+      "paint": {
+        "text-color": "rgba(44, 74, 94, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "class", "railway"],
+        ["==", "subclass", "station"]
+      ]
+    },
+    {
+      "id": "transport_airport",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "aerodrome_label",
+      "minzoom": 11,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [10, 0.6],
+            [16, 1.8]
+          ]
+        },
+        "text-font": ["Roboto Medium", "Noto Sans Regular"],
+        "text-size": {
+          "stops": [
+            [10, 9],
+            [12, 11],
+            [14, 14]
+          ]
+        },
+        "icon-image": "airport",
+        "text-field": {
+          "stops": [
+            [10, "{iata}"],
+            [14, "{name:latin}"]
+          ]
+        },
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": {
+          "stops": [
+            [10, [0, -4]],
+            [14, [0, -7]]
+          ]
+        },
+        "text-line-height": 0.9
+      },
+      "paint": {
+        "text-color": "rgba(67, 102, 123, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "metadata": {},
+      "filter": ["all", ["in", "class", "international", "regional"]]
+    },
+    {
+      "id": "transport_airfield",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "aerodrome_label",
+      "minzoom": 11,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [10, 0.6],
+            [16, 1.6]
+          ]
+        },
+        "text-font": ["Roboto Regular", "Noto Sans Regular"],
+        "text-size": 12,
+        "icon-image": "airfield",
+        "text-field": {
+          "stops": [
+            [11, " "],
+            [13, "{name:latin}"]
+          ]
+        },
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": {
+          "stops": [
+            [12, [0, -7]],
+            [14, [0, -6]]
+          ]
+        },
+        "text-line-height": 0.9
+      },
+      "paint": {
+        "text-color": "rgba(78, 99, 137, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "other"]]
+    },
+
+    {
+      "id": "road_label_ferry",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "layout": {
+        "text-font": ["Roboto Italic", "Noto Sans Italic"],
+        "text-size": {
+          "base": 1,
+          "stops": [
+            [13, 10],
+            [14, 11],
+            [16, 13]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-anchor": "center",
+        "text-offset": [0, 0.15],
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(108, 135, 174, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(203, 249, 249, 0.81)",
+        "text-halo-width": 1.5
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "subclass", "ferry"]]
+    },
+    {
+      "id": "road_label",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "layout": {
+        "text-font": ["Roboto Regular", "Noto Sans Regular"],
+        "text-size": {
+          "base": 1,
+          "stops": [
+            [13, 10],
+            [14, 11],
+            [16, 13]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-anchor": "center",
+        "text-offset": [0, 0.15],
+        "symbol-spacing": 500,
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(31, 48, 59, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1.5
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["!in", "class", "track", "bus_guideway"],
+        ["!in", "subclass", "ferry", "gondola", "cable_car"]
+      ]
+    },
+    {
+      "id": "boundary_3",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "minzoom": 3,
+      "layout": { "line-join": "round", "visibility": "visible" },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [6, "rgba(106, 119, 153, 1)"],
+            [16, "rgba(171, 190, 217, 1)"]
+          ]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [4, 0.3],
+            [5, 0.6],
+            [12, 1.8]
+          ]
+        },
+        "line-dasharray": [5, 1]
+      },
+      "metadata": {},
+      "filter": ["all", ["in", "admin_level", 3, 4], ["==", "maritime", 0]]
+    },
+    {
+      "id": "boundary_2_maritime",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [4, "rgba(131, 192, 252, 1)"],
+            [10, "rgba(100, 157, 217, 1)"]
+          ]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [5, 1.2],
+            [14, 1.8]
+          ]
+        },
+        "line-opacity": 1
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "admin_level", 2], ["==", "maritime", 1]]
+    },
+    {
+      "id": "boundary_country-disputed",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [6, "rgba(106, 119, 153, 1)"],
+            [16, "rgba(171, 190, 217, 1)"]
+          ]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [0, 0.4],
+            [3, 0.9],
+            [5, 1.3],
+            [12, 3]
+          ]
+        },
+        "line-opacity": {
+          "base": 1,
+          "stops": [
+            [0, 0.3],
+            [4, 0.6],
+            [12, 1]
+          ]
+        },
+        "line-dasharray": [2, 2]
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "admin_level", 2],
+        ["==", "maritime", 0],
+        ["==", "disputed", 1]
+      ]
+    },
+    {
+      "id": "boundary_country",
+      "type": "line",
+      "source": "maptiler_planet",
+      "source-layer": "boundary",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": {
+          "stops": [
+            [6, "rgba(106, 119, 153, 1)"],
+            [16, "rgba(171, 190, 217, 1)"]
+          ]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [
+            [0, 0.4],
+            [3, 0.9],
+            [5, 1.3],
+            [12, 3]
+          ]
+        },
+        "line-opacity": {
+          "base": 1,
+          "stops": [
+            [0, 0.3],
+            [4, 0.6],
+            [16, 1]
+          ]
+        }
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "admin_level", 2],
+        ["==", "maritime", 0],
+        ["==", "disputed", 0]
+      ]
+    },
+    {
+      "id": "mountain_peak-us",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [9, 0.7],
+            [14, 1]
+          ]
+        },
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [7, 9],
+            [11, 10],
+            [13, 14]
+          ]
+        },
+        "icon-image": "peak",
+        "text-field": "{name:latin} {ele_ft} ft",
+        "visibility": "visible",
+        "icon-anchor": "center",
+        "text-anchor": "top",
+        "text-offset": [0, 0.5],
+        "text-max-width": {
+          "stops": [
+            [12, 4],
+            [15, 6]
+          ]
+        }
+      },
+      "paint": {
+        "text-color": "rgba(70, 78, 131, 1)",
+        "text-halo-blur": {
+          "stops": [
+            [11, 2],
+            [15, 0]
+          ]
+        },
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": {
+          "stops": [
+            [11, 2],
+            [15, 1.4]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "rank", 1],
+        ["==", "class", "peak"],
+        ["has", "customary_ft"]
+      ]
+    },
+    {
+      "id": "mountain_peak",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [9, 0.7],
+            [14, 1]
+          ]
+        },
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [7, 9],
+            [11, 10],
+            [13, 14]
+          ]
+        },
+        "icon-image": "peak",
+        "text-field": "{name:latin} {ele} m",
+        "visibility": "visible",
+        "icon-anchor": "center",
+        "text-anchor": "top",
+        "text-offset": [0, 0.5],
+        "text-max-width": {
+          "stops": [
+            [12, 4],
+            [15, 6]
+          ]
+        }
+      },
+      "paint": {
+        "text-color": "rgba(70, 78, 131, 1)",
+        "text-halo-blur": {
+          "stops": [
+            [11, 2],
+            [15, 0]
+          ]
+        },
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": {
+          "stops": [
+            [11, 2],
+            [15, 2]
+          ]
+        }
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "rank", 1],
+        ["==", "class", "peak"],
+        ["!has", "customary_ft"]
+      ]
+    },
+    {
+      "id": "mountain_volcano-us",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [9, 0.7],
+            [14, 1]
+          ]
+        },
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [7, 9],
+            [11, 10],
+            [13, 14]
+          ]
+        },
+        "icon-image": "volcano",
+        "text-field": "{name:latin} {ele_ft} ft",
+        "visibility": "visible",
+        "text-anchor": "top",
+        "text-offset": [0, 0.5],
+        "text-max-width": {
+          "stops": [
+            [12, 4],
+            [15, 6]
+          ]
+        }
+      },
+      "paint": {
+        "text-color": "rgba(205, 111, 0, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "rank", 1],
+        ["==", "class", "volcano"],
+        ["has", "customary_ft"]
+      ]
+    },
+    {
+      "id": "mountain_volcano",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "maxzoom": 24,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [9, 0.7],
+            [14, 1]
+          ]
+        },
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [7, 9],
+            [11, 10],
+            [13, 14]
+          ]
+        },
+        "icon-image": "volcano",
+        "text-field": "{name:latin} {ele} m",
+        "visibility": "visible",
+        "text-anchor": "top",
+        "text-offset": [0, 0.5],
+        "text-max-width": {
+          "stops": [
+            [12, 4],
+            [15, 6]
+          ]
+        }
+      },
+      "paint": {
+        "text-color": "rgba(205, 111, 0, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1
+      },
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "rank", 1],
+        ["==", "class", "volcano"],
+        ["!has", "customary_ft"]
+      ]
+    },
+    {
+      "id": "water_name_line",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "water_name",
+      "minzoom": 0,
+      "layout": {
+        "text-font": ["Roboto Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [10, 12],
+            [14, 18]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-max-width": 5,
+        "symbol-placement": "line",
+        "text-letter-spacing": 0.6
+      },
+      "paint": {
+        "text-color": "rgba(28, 111, 133, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.63)",
+        "text-halo-width": 1.5
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "$type", "LineString"]]
+    },
+    {
+      "id": "water_name_point",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "water_name",
+      "minzoom": 2,
+      "layout": {
+        "text-font": ["Roboto Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [2, 14],
+            [3, 16],
+            [6, 20]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "icon-anchor": "center",
+        "text-optional": true,
+        "text-max-width": 8,
+        "text-transform": "none"
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [2, "rgba(123, 180, 220, 1)"],
+            [10, "rgba(28, 111, 133, 1)"]
+          ]
+        },
+        "text-halo-blur": 1.6,
+        "text-halo-color": "rgba(179, 222, 255, 0)",
+        "text-halo-width": 1.4
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "$type", "Point"], ["!=", "class", "lake"]]
+    },
+    {
+      "id": "water_name_way",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "waterway",
+      "minzoom": 14,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [6, 11],
+            [18, 14]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-offset": [0, -1],
+        "symbol-spacing": 350,
+        "text-max-width": 5,
+        "symbol-placement": "line",
+        "text-letter-spacing": 0.4,
+        "text-rotation-alignment": "map"
+      },
+      "paint": {
+        "text-color": "rgba(28, 111, 133, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(222, 240, 240, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "$type", "LineString"], ["has", "name"]]
+    },
+    {
+      "id": "place_park",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "park",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [13, 13],
+            [16, 14]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "text-padding": {
+          "stops": [
+            [6, 39],
+            [14, 99]
+          ]
+        },
+        "symbol-spacing": 550
+      },
+      "paint": {
+        "text-color": "rgba(26, 93, 115, 1)",
+        "text-halo-blur": {
+          "stops": [
+            [9, 3],
+            [14, 0.5]
+          ]
+        },
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": {
+          "stops": [
+            [9, 1.6],
+            [14, 1]
+          ]
+        }
+      },
+      "filter": ["all"]
+    },
+    {
+      "id": "place_other",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [11, 11],
+            [16, 16]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-max-width": 9,
+        "text-transform": "none",
+        "text-letter-spacing": 0.1
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [6, "rgba(59, 71, 81, 1)"],
+            [12, "rgba(33, 49, 57, 1)"]
+          ]
+        },
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["in", "class", "hamlet", "island", "islet", "neighbourhood", "suburb"]
+      ]
+    },
+    {
+      "id": "place_village",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 10,
+      "maxzoom": 18,
+      "layout": {
+        "text-font": ["Roboto Regular", "Noto Sans Regular"],
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [10, 12],
+            [15, 22]
+          ]
+        },
+        "icon-image": "dot_9",
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, 6],
+        "text-anchor": "bottom",
+        "text-max-width": 8
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [6, "rgba(59, 71, 81, 1)"],
+            [10, "rgba(45, 59, 69, 1)"]
+          ]
+        },
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1.9
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "village"]]
+    },
+    {
+      "id": "place_town",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 6,
+      "maxzoom": 16,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Regular", "Noto Sans Regular"],
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [7, 11],
+            [11, 20]
+          ]
+        },
+        "icon-image": "dot_11",
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "icon-anchor": "top",
+        "icon-offset": [0, 8],
+        "text-anchor": "center",
+        "text-offset": [0, 0],
+        "text-max-width": 8
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [6, "rgba(59, 71, 81, 1)"],
+            [12, "rgba(45, 59, 69, 1)"]
+          ]
+        },
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1.6
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "town"]]
+    },
+    {
+      "id": "place_state",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 3,
+      "maxzoom": 8,
+      "layout": {
+        "text-font": ["Roboto Medium", "Noto Sans Regular"],
+        "text-size": {
+          "stops": [
+            [3, 10],
+            [6, 14]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-transform": "uppercase"
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [6, "rgba(98, 113, 127, 1)"],
+            [12, "rgba(45, 59, 69, 1)"]
+          ]
+        },
+        "text-halo-color": "rgba(227, 254, 254, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "class", "state"], ["<", "rank", 3]]
+    },
+    {
+      "id": "place_region",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 8,
+      "maxzoom": 12,
+      "layout": {
+        "text-font": ["Roboto Medium", "Noto Sans Regular"],
+        "text-size": {
+          "stops": [
+            [6, 10],
+            [12, 16]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-transform": "uppercase"
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [6, "rgba(98, 113, 127, 1)"],
+            [12, "rgba(45, 59, 69, 1)"]
+          ]
+        },
+        "text-halo-color": "rgba(227, 254, 254, 1)",
+        "text-halo-width": 1
+      },
+      "filter": ["all", ["==", "class", "state"], ["in", "rank", 3, 4]]
+    },
+    {
+      "id": "place_city",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 5,
+      "maxzoom": 18,
+      "layout": {
+        "icon-size": 1.4,
+        "text-font": ["Roboto Medium", "Noto Sans Regular"],
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [7, 14],
+            [11, 24]
+          ]
+        },
+        "icon-image": "dot_9",
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-anchor": "bottom",
+        "text-offset": [0, 0],
+        "icon-optional": false,
+        "text-max-width": 8,
+        "icon-allow-overlap": false
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [6, "rgba(59, 71, 81, 1)"],
+            [12, "rgba(45, 59, 69, 1)"]
+          ]
+        },
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 1.6
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["==", "class", "city"],
+        ["<=", "rank", 8],
+        ["!=", "capital", 2]
+      ]
+    },
+    {
+      "id": "place_capital",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 5,
+      "maxzoom": 15,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [6, 1.2],
+            [10, 1.4]
+          ]
+        },
+        "text-font": ["Roboto Medium", "Noto Sans Regular"],
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [5, 16],
+            [7, 18],
+            [9, 25],
+            [11, 28]
+          ]
+        },
+        "icon-image": "dot_11",
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "icon-offset": {
+          "stops": [
+            [6, [0, 0]],
+            [10, [0, -2]]
+          ]
+        },
+        "text-anchor": "bottom",
+        "text-offset": [0, 0],
+        "icon-optional": false,
+        "text-max-width": 8,
+        "icon-allow-overlap": false
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [6, "rgba(59, 71, 81, 1)"],
+            [12, "rgba(45, 59, 69, 1)"]
+          ]
+        },
+        "text-halo-color": "rgba(242, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "capital", 2], ["==", "class", "city"]]
+    },
+    {
+      "id": "country_other",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "layout": {
+        "text-font": ["Noto Sans Bold"],
+        "text-size": {
+          "stops": [
+            [3, 9],
+            [5, 11],
+            [7, 16]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-max-width": 6.25,
+        "text-transform": "none"
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [2, "rgba(59, 71, 81, 1)"],
+            [10, "rgba(45, 59, 69, 1)"]
+          ]
+        },
+        "text-halo-blur": 1.6,
+        "text-halo-color": "rgba(227, 254, 254, 1)",
+        "text-halo-width": 1
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "country"], ["!has", "iso_a2"]]
+    },
+    {
+      "id": "country_rank_3",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 3,
+      "maxzoom": 8,
+      "layout": {
+        "text-font": ["Noto Sans Bold"],
+        "text-size": {
+          "stops": [
+            [3, 10],
+            [4, 14],
+            [7, 18]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-max-width": 6.25,
+        "text-transform": "none"
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [2, "rgba(59, 71, 81, 1)"],
+            [10, "rgba(45, 59, 69, 1)"]
+          ]
+        },
+        "text-halo-blur": 1.6,
+        "text-halo-color": "rgba(227, 254, 254, 1)",
+        "text-halo-width": 1
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        [">=", "rank", 3],
+        ["==", "class", "country"],
+        ["has", "iso_a2"]
+      ]
+    },
+    {
+      "id": "country_rank_1-2",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "minzoom": 2,
+      "maxzoom": 7,
+      "layout": {
+        "text-font": ["Noto Sans Bold"],
+        "text-size": {
+          "stops": [
+            [2, 10],
+            [4, 14],
+            [7, 22]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-padding": 0,
+        "text-max-width": 8.25,
+        "text-transform": "none",
+        "text-line-height": 0.9
+      },
+      "paint": {
+        "text-color": {
+          "stops": [
+            [2, "rgba(59, 71, 81, 1)"],
+            [10, "rgba(45, 59, 69, 1)"]
+          ]
+        },
+        "text-halo-blur": 2,
+        "text-halo-color": "rgba(227, 254, 254, 1)",
+        "text-halo-width": 1.4
+      },
+      "metadata": {},
+      "filter": [
+        "all",
+        ["<=", "rank", 2],
+        ["==", "class", "country"],
+        ["has", "iso_a2"]
+      ]
+    },
+    {
+      "id": "continent",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "place",
+      "maxzoom": 3,
+      "layout": {
+        "text-font": ["Nunito Bold"],
+        "text-size": {
+          "stops": [
+            [1, 12],
+            [4, 24]
+          ]
+        },
+        "text-field": "{name:latin}",
+        "visibility": "visible",
+        "text-justify": "center",
+        "text-padding": 0,
+        "text-transform": "uppercase"
+      },
+      "paint": {
+        "text-color": "rgba(59, 71, 81, 1)",
+        "text-halo-color": "rgba(227, 254, 254, 1)",
+        "text-halo-width": 1.3
+      },
+      "metadata": {},
+      "filter": ["all", ["==", "class", "continent"]]
+    },
+    {
+      "id": "ski_lift_pylons",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 16,
+      "maxzoom": 24,
+      "layout": {
+        "icon-size": {
+          "stops": [
+            [15, 0.75],
+            [17, 1]
+          ]
+        },
+        "text-font": ["Roboto Medium Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [16, 9],
+            [18, 12]
+          ]
+        },
+        "icon-image": "pylon",
+        "text-field": "{ref}",
+        "visibility": "visible",
+        "icon-offset": [0, 0],
+        "text-anchor": "top",
+        "text-offset": [0, -1.5],
+        "text-max-width": 14
+      },
+      "paint": {
+        "text-color": "rgba(92, 92, 92, 1)",
+        "text-halo-blur": 0.25,
+        "text-halo-color": "rgba(251, 251, 251, 1)",
+        "text-halo-width": 2
+      },
+      "filter": ["all", ["==", "class", "pylon"]]
+    },
+    {
+      "id": "ski_gondola_label",
+      "type": "symbol",
+      "source": "maptiler_planet",
+      "source-layer": "transportation_name",
+      "minzoom": 15,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [22, 16]
+          ]
+        },
+        "text-field": "{name}",
+        "visibility": "visible",
+        "symbol-spacing": 400,
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(28, 28, 28, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "filter": ["all", ["in", "subclass", "gondola", "cable_car"]]
+    },
+    {
+      "id": "ski_chairlift_label",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 15,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [22, 16]
+          ]
+        },
+        "text-field": "{name}",
+        "visibility": "visible",
+        "symbol-spacing": 400,
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(28, 28, 28, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "filter": ["all", ["==", "subclass", "chair_lift"]]
+    },
+    {
+      "id": "ski_platter_label",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 15,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [22, 16]
+          ]
+        },
+        "text-field": "{name}",
+        "visibility": "visible",
+        "symbol-spacing": 300,
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(28, 28, 28, 1)",
+        "text-halo-blur": 1.4,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "filter": ["all", ["==", "subclass", "platter"]]
+    },
+    {
+      "id": "ski_slope_advanced_label",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 14,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [22, 16]
+          ]
+        },
+        "text-field": "{name}",
+        "visibility": "visible",
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(30, 30, 30, 1)",
+        "text-halo-blur": 1.4,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "filter": ["all", ["==", "difficulty", "advanced"]]
+    },
+    {
+      "id": "ski_slope_intermediate_label",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 14,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [22, 16]
+          ]
+        },
+        "text-field": "{name}",
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(211, 63, 63, 1)",
+        "text-halo-blur": 1.4,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "filter": [
+        "all",
+        ["==", "difficulty", "intermediate"],
+        ["==", "class", "downhill"]
+      ]
+    },
+    {
+      "id": "ski_slope_easy_label",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 14,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [22, 16]
+          ]
+        },
+        "text-field": "{name}",
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(45, 128, 207, 1)",
+        "text-halo-blur": 1.4,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "filter": [
+        "all",
+        ["==", "difficulty", "easy"],
+        ["==", "class", "downhill"]
+      ]
+    },
+    {
+      "id": "ski_slope_skitour_label",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 14,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [22, 16]
+          ]
+        },
+        "text-field": "{name}",
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(103, 96, 218, 1)",
+        "text-halo-blur": 1.4,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "filter": ["all", ["==", "class", "skitour"]]
+    },
+    {
+      "id": "ski_slope_snowpark_label",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 14,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [22, 16]
+          ]
+        },
+        "text-field": "{name}",
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(158, 75, 209, 1)",
+        "text-halo-blur": 1.4,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "filter": ["all", ["==", "class", "snow_park"]]
+    },
+    {
+      "id": "ski_slope_novice_label",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 14,
+      "layout": {
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [22, 16]
+          ]
+        },
+        "text-field": "{name}",
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(32, 172, 8, 1)",
+        "text-halo-blur": 1.4,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "filter": [
+        "all",
+        ["==", "difficulty", "novice"],
+        ["==", "class", "downhill"]
+      ]
+    },
+    {
+      "id": "ski_nordic_trail_label",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 8,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Condensed Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [12, 11],
+            [22, 16]
+          ]
+        },
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-offset": [0, 0],
+        "text-anchor": "top",
+        "text-offset": [0, 0],
+        "text-max-width": 14,
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(82, 189, 195, 1)",
+        "text-halo-blur": 1.25,
+        "text-halo-color": "rgba(251, 251, 251, 1)",
+        "text-halo-width": 2
+      },
+      "filter": ["all", ["==", "class", "nordic"]]
+    },
+    {
+      "id": "ski_resort_label",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "ski",
+      "minzoom": 8,
+      "maxzoom": 15,
+      "layout": {
+        "icon-size": 1,
+        "text-font": ["Roboto Medium Italic", "Noto Sans Italic"],
+        "text-size": {
+          "stops": [
+            [9, 10],
+            [12, 14],
+            [15, 20]
+          ]
+        },
+        "icon-image": "resort",
+        "text-field": "{name}",
+        "visibility": "visible",
+        "icon-offset": {
+          "stops": [
+            [6, [0, -16]],
+            [16, [0, -24]]
+          ]
+        },
+        "text-anchor": "top",
+        "text-offset": [0, -0.85],
+        "text-max-width": 7
+      },
+      "paint": {
+        "text-color": "rgba(18, 144, 211, 1)",
+        "text-halo-blur": 0.25,
+        "text-halo-color": "rgba(251, 251, 251, 1)",
+        "text-halo-width": 2
+      },
+      "filter": ["all", ["==", "class", "ski_resort"]]
+    }
+  ],
+  "metadata": {
+    "maptiler:copyright": "This style was generated on MapTiler Cloud. Usage outside of MapTiler Cloud requires valid MapTiler Data Package: https://www.maptiler.com/data/package/ -- please contact us."
+  },
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=wSVUkjoWKTD8fUSyzJd5",
+  "sprite": "https://api.maptiler.com/maps/winter/sprite",
+  "bearing": 0,
+  "pitch": 0,
+  "center": [6.97, 21.69],
+  "zoom": 0.68
+}

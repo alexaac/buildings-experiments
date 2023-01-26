@@ -19,7 +19,16 @@
     "examples": [],
     "finished": true
   },
-
+  {
+    "name": "snow",
+    "title": "Snow",
+    "type": "child",
+    "parent": "buildings-experiments",
+    "icon": "",
+    "description": " Snow ❄️  ",
+    "examples": [],
+    "finished": true
+  },
   {
     "title": "3D Buildings Experiments",
     "type": "parent",
