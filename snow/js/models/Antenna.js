@@ -37,11 +37,11 @@ const params = {
   exposure: 1,
 };
 
-const sprite1 = textureLoader.load('../../assets/textures/snowflake1.png');
-const sprite2 = textureLoader.load('../../assets/textures/snowflake2.png');
-const sprite3 = textureLoader.load('../../assets/textures/snowflake2.png');
-const sprite4 = textureLoader.load('../../assets/textures/snowflake4.png');
-const sprite5 = textureLoader.load('../../assets/textures/snowflake5.png');
+const sprite1 = textureLoader.load('../assets/textures/snowflake1.png');
+const sprite2 = textureLoader.load('../assets/textures/snowflake2.png');
+const sprite3 = textureLoader.load('../assets/textures/snowflake2.png');
+const sprite4 = textureLoader.load('../assets/textures/snowflake4.png');
+const sprite5 = textureLoader.load('../assets/textures/snowflake5.png');
 
 const snowParams = [
   [[186, 0.9, 0.85], sprite2, 20],
@@ -121,7 +121,7 @@ export class Antenna {
      * Environment map
      */
     //  http://www.humus.name/index.php?page=Textures&ID=32
-    const path = '../../assets/environment/Park2/';
+    const path = '../assets/environment/Park2/';
     const format = '.jpg';
     const urls = [
       path + 'posx' + format,
@@ -191,7 +191,7 @@ export class Antenna {
 
     // https://github.com/RalucaNicola/learn-threejs
     const doorAlphaTexture = new THREE.TextureLoader().load(
-      '../../assets/textures/alpha.png'
+      '../assets/textures/alpha.png'
     );
 
     // add a shiny, transparent globe around the scene
