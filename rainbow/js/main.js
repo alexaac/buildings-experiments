@@ -8,8 +8,8 @@ const longitude = -74.012512161357,
 const apiKey = 'wSVUkjoWKTD8fUSyzJd5';
 
 let styles = {
-  day: '../../../styles/maptiler3d.json',
-  night: '../../../styles/dark.json',
+  day: '../styles/maptiler3d.json',
+  night: '../styles/dark.json',
 };
 let selectedStyle = styles.day;
 
