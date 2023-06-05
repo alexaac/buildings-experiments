@@ -70,6 +70,16 @@
     "finished": true
   },
   {
+    "name": "funky-city",
+    "title": "Funky City",
+    "type": "child",
+    "parent": "buildings-experiments",
+    "icon": "",
+    "description": " Funky City  ",
+    "examples": [],
+    "finished": true
+  },
+  {
     "title": "3D Buildings Experiments",
     "type": "parent",
     "name": "buildings-experiments",
