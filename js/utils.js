@@ -4,6 +4,18 @@ import * as dat from './libs/lil-gui.module.min.js';
 
 // A set of utility functions for /common operations across our application
 const utils = {
+  /**
+   * @description Fetch data
+   * @param {string} url - file
+   */
+  async getData(url) {
+    const response = fetch(url);
+
+    const data = await (await response).json();
+
+    return data;
+  },
+
   // Find and return a DOM element given an ID
   getCanvas(id) {
     const canvas = document.getElementById(id);

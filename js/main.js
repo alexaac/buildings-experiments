@@ -1,20 +1,10 @@
+import utils from './utils.js';
+
 let imgNames = [];
 const imgDiv = document.getElementById('mps-inline-block');
 
-/**
- * @description Fetch data
- * @param {string} url - file
- */
-const getData = async (url) => {
-  const response = fetch(url);
-
-  const data = await (await response).json();
-
-  return data;
-};
-
 // Get the data
-const data = await getData('data/categories.json');
+const data = await utils.getData('data/categories.json');
 
 data.forEach((elem, i) => {
   if (elem.type === 'child') {

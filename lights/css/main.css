@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+#time {
+  position: absolute;
+  width: 90%;
+  top: 10px;
+  left: 10px;
+}
+
+.lil-gui {
+  left: 0;
+}
+
+#hour {
+  background: rgba(0, 0, 0, 0.5);
+  color: #e1e3ec;
+  position: absolute;
+  left: 0;
+  /* right: 0px; */
+  bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 30%;
+  padding: 5px 10px;
+  font-size: 18px;
+  line-height: 18px;
+  border-radius: 3px;
+  text-align: center;
+}

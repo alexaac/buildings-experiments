@@ -1,12 +1,12 @@
-@font-face {
-  font-family: 'Baskerville Normal';
+/* @font-face {
+  font-family: 'Raleway';
   src: url(./static/DarkBastion-AGJm.ttf);
 }
 
 @font-face {
   font-family: 'Baskerville Bold';
   src: url(./static/DarkBastion-AGJm.ttf);
-}
+} */
 
 * {
   scrollbar-width: none;
@@ -15,9 +15,9 @@
 
 body {
   background: #000;
-  color: rgb(245, 245, 248);
+  color: rgb(248, 246, 245);
   max-width: 1216px;
-  font-family: 'Baskerville Normal', Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
 }
 
 h1,
@@ -411,7 +411,7 @@ p {
     margin: 0;
   }
   .content--subCopy p {
-    font-family: 'Baskerville Normal', Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
@@ -453,7 +453,7 @@ body {
   /* padding: 1rem; */
   font-size: 14px;
   color: #ffffff;
-  font-family: 'Baskerville Normal', Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
   /* text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff; */
 }
 

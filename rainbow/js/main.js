@@ -49,7 +49,7 @@ class searchControl {
     this._map = undefined;
   }
 }
-// map.addControl(new searchControl(), 'top-right');
+map.addControl(new searchControl(), 'top-right');
 
 /**
  * Debug

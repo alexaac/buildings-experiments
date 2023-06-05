@@ -30,6 +30,46 @@
     "finished": true
   },
   {
+    "name": "portal",
+    "title": "Portal",
+    "type": "child",
+    "parent": "buildings-experiments",
+    "icon": "",
+    "description": " Portal  ",
+    "examples": [],
+    "finished": true
+  },
+  {
+    "name": "lights",
+    "title": "Lights",
+    "type": "child",
+    "parent": "buildings-experiments",
+    "icon": "",
+    "description": " Lights  ",
+    "examples": [],
+    "finished": true
+  },
+  {
+    "name": "balloon",
+    "title": "Balloons",
+    "type": "child",
+    "parent": "buildings-experiments",
+    "icon": "",
+    "description": " Balloons  ",
+    "examples": [],
+    "finished": true
+  },
+  {
+    "name": "uv",
+    "title": "UV",
+    "type": "child",
+    "parent": "buildings-experiments",
+    "icon": "",
+    "description": " UV  ",
+    "examples": [],
+    "finished": true
+  },
+  {
     "title": "3D Buildings Experiments",
     "type": "parent",
     "name": "buildings-experiments",
