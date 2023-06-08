@@ -80,6 +80,16 @@
     "finished": true
   },
   {
+    "name": "isometric",
+    "title": "Isometric",
+    "type": "child",
+    "parent": "buildings-experiments",
+    "icon": "",
+    "description": " Isometric  ",
+    "examples": [],
+    "finished": true
+  },
+  {
     "title": "3D Buildings Experiments",
     "type": "parent",
     "name": "buildings-experiments",
