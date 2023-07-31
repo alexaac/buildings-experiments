@@ -1,6 +1,6 @@
 'use strict';
 
-import * as dat from './libs/lil-gui.module.min.js';
+import * as dat from '../../js/libs/lil-gui.module.min.js';
 
 // A set of utility functions for /common operations across our application
 const utils = {

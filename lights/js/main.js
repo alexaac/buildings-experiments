@@ -1,4 +1,4 @@
-import * as dat from './libs/lil-gui.module.min.js';
+import * as dat from '../../js/libs/lil-gui.module.min.js';
 import utils from './utils.js';
 
 import extrudeVertexShader from './shaders/extrude/vertex.js';
