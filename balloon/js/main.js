@@ -3,7 +3,7 @@ import * as THREE from '../../js/build/three.module.js';
 import { CustomLayer } from './models/CustomLayer.js';
 
 mapboxgl.accessToken =
-  'pk.eyJ1IjoiYWxleGFhYyIsImEiOiJja3o1OGdrcWUwZGN2MnRwa2xsa2pqNTI3In0.RenxXCa3uR7D7-tdvoYKGw';
+  'pk.eyJ1IjoiYWxleGFhYyIsImEiOiJjbDhvZ242MWEwYmF2NDFydXQ0bWpqcnJwIn0.l7weC1uq7sZuuVqmByhYiA';
 const apiKey = 'wSVUkjoWKTD8fUSyzJd5';
 
 const center = { lng: -74.00565165636584, lat: 40.7129965903147 };

@@ -12,7 +12,7 @@ let ADD = 1;
 let i = 1;
 const gltfUrl = './assets/hotairballon.glb';
 // const gltfUrl = './assets/balloons.glb';
-
+buildings-experiments/balloon/assets$ 
 /**
  * Loading manager
  */

@@ -111,3 +111,7 @@ Gemfile diff=ruby
 *.tgz   binary
 *.war   binary
 *.zip   binary diff=exif
+
+# Models
+*.glb   binary diff=exif
+*.gltf  binary diff=exif
