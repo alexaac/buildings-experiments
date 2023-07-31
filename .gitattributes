@@ -113,4 +113,4 @@ Gemfile diff=ruby
 *.zip   binary diff=exif
 
 # Models
-*.glb   binary diff=exif
+*.glb   binary

@@ -10,7 +10,7 @@ let cube, gltfBalloon;
 let balloons = [];
 let ADD = 1;
 let i = 1;
-const gltfUrl = './assets/hotairballon.glb';
+const gltfUrl = './assets/hotairballon1.glb';
 // const gltfUrl = './assets/balloons.glb';
 
 /**
