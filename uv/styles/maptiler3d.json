@@ -687,7 +687,7 @@
       "type": "fill-extrusion",
       "source": "openmaptiles",
       "source-layer": "building",
-      "filter": ["all", ["!has", "hide_3d"]],
+
       "paint": {
         "fill-extrusion-base": {
           "property": "render_min_height",

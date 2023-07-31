@@ -259,7 +259,7 @@ gui
 
 class BuildingShadows {
   constructor() {
-    this.id = 'building-shadows';
+    this.id = 'buildingsLayer';
     this.buildingsLayerId = 'building-3d';
     this.type = 'custom';
     this.renderingMode = '3d';

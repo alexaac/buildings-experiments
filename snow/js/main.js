@@ -1,6 +1,6 @@
 import * as THREE from '../../js/build/three.module.js';
 
-import { Antenna } from './models/Antenna.js';
+import { CustomLayer } from './models/CustomLayer.js';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiYWxleGFhYyIsImEiOiJja3o1OGdrcWUwZGN2MnRwa2xsa2pqNTI3In0.RenxXCa3uR7D7-tdvoYKGw';
@@ -115,7 +115,7 @@ map.setFog({
 });
 
 map.addLayer(
-  new Antenna(
+  new CustomLayer(
     assetArr[0].id,
     assetArr[0].cord,
     assetArr[0].url,
@@ -192,7 +192,7 @@ map.on('click', (e) => {
 
   map.removeLayer('sphere');
   map.addLayer(
-    new Antenna(
+    new CustomLayer(
       assetArr[0].id,
       e.lngLat.wrap(),
       assetArr[0].url,
@@ -207,7 +207,7 @@ map.on('touchstart', (e) => {
 
   map.removeLayer('sphere');
   map.addLayer(
-    new Antenna(
+    new CustomLayer(
       assetArr[0].id,
       e.lngLat.wrap(),
       assetArr[0].url,

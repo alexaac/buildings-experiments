@@ -96,6 +96,9 @@ export class Buildings {
         'uOpacity',
         'uMapPosition',
         'uResolution',
+        'uColorA',
+        'uColorB',
+        'uSpacing',
       ];
 
       // Load attributes and uniforms
@@ -103,50 +106,6 @@ export class Buildings {
     };
 
     initBuildingsProgram();
-
-    this.startSequence();
-
-    // const camera = this.map.getFreeCameraOptions();
-
-    // const cameraPosition = camera._position.toLngLat();
-  }
-
-  startSequence() {
-    this.parameters.hWave = 0;
-
-    // console.log('---------------------------------');
-    // console.log(running);
-    if (running) return;
-
-    gsap.to(this.parameters, {
-      delay: 0,
-      duration: 4,
-      hWave: '+=200 ',
-      ease: 'linear',
-      onUpdate: () => {
-        // console.log('on update ', this.parameters.hWave);
-
-        this.map.triggerRepaint();
-      },
-      onStart: () => {
-        // this.map.easeTo({
-        //   pitch: 76,
-        //   bearing: -30,
-        //   zoom: 15.5,
-        //   duration: 8000,
-        //   delay: 0,
-        // });
-
-        // console.log('on start ', this.parameters.hWave);
-        running = true;
-      },
-      onComplete: () => {
-        // console.log('on complete ', this.parameters.hWave);
-
-        running = false;
-        this.startSequence();
-      },
-    });
   }
 
   render(gl, viewProjectionMatrix) {
@@ -166,6 +125,15 @@ export class Buildings {
     ]);
 
     gl.uniform1f(buildingsProgram.uTime, this.parameters.uTime);
+    gl.uniform3fv(
+      buildingsProgram.uColorA,
+      utils.normalizeColor(this.parameters.uColorA)
+    );
+    gl.uniform3fv(
+      buildingsProgram.uColorB,
+      utils.normalizeColor(this.parameters.uColorB)
+    );
+    gl.uniform1f(buildingsProgram.uSpacing, this.parameters.uSpacing);
 
     const drawBuildings = () => {
       if (!this.source) return;

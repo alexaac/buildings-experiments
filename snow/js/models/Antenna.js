@@ -59,7 +59,7 @@ const clock = new THREE.Clock();
 let time = 0,
   unit = 0.5;
 
-export class Antenna {
+export class CustomLayer {
   type = 'custom';
   renderingMode = '3d';
 

@@ -134,7 +134,7 @@ map.on('load', function () {
 
   if (map.getSource('openmaptiles')) {
     map.addLayer(
-      new Buildings('building-shadows', 'building-3d', parameters),
+      new Buildings('buildingsLayer', 'building-3d', parameters),
       'building-3d'
     );
 

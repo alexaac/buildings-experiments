@@ -6,7 +6,9 @@ const extrudeVertexShader = `
   uniform mat4 u_view_matrix;
   uniform mat4 u_projection_matrix;
   uniform mat4 u_normal_matrix;
-  uniform float u_time;
+  // uniform float u_time;
+  uniform vec3 u_color_a;
+  uniform vec3 u_color_b;
 
   attribute vec2 a_vertex_position;
   attribute vec4 a_vertex_normal;
@@ -18,7 +20,6 @@ const extrudeVertexShader = `
   varying vec3 v_vertex_color;
   varying vec4 v_pos;
   varying vec2 vUv;
-
 
 
   void main() {
@@ -49,11 +50,12 @@ const extrudeVertexShader = `
     // Mix uses pct (a value from 0-1) to
     // mix the two colors
 
-    vec3 colorA = vec3(0.149, 0.141, 0.912);
-    vec3 colorB = vec3(1.000, 0.833, 0.224);
+    vec3 colorA = u_color_a; //vec3(0.149, 0.141, 0.912);
+    vec3 colorB = u_color_b; //vec3(1.000, 0.833, 0.224);
     vec3 color = mix(colorA, colorB, pct);
 
     v_vertex_color = color;
+   
   }
 `;
 

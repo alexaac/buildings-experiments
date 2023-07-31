@@ -11,12 +11,15 @@ const extrudeFragmentShader = `
   uniform vec4 u_material_ambient;
   uniform vec3 u_material_diffuse;
   uniform vec4 u_material_specular;
-  // uniform float u_time;
+  uniform float u_time;
+  uniform float u_spacing;
+  uniform float u_material_opacity;
   
   varying vec3 v_normal;
   varying vec3 v_eye_vector;
   varying vec3 v_vertex_color;
   varying vec4 v_pos;
+  varying float v_spacing;
 
   // hue-saturation-value to RBG color space converter
   vec3 hsv2rgb(vec3 c, bool coloured) {
@@ -54,15 +57,17 @@ const extrudeFragmentShader = `
       Is = u_light_specular * u_material_specular * specular;
     }
 
-    // Final fargment color takes into account all light values that
+    // Final fragment color takes into account all light values that
     // were computed within the fragment shader
     gl_FragColor = vec4(vec3(Ia + Id + Is), 1.0);
     
   
 
-    gl_FragColor.rgb *= hsv2rgb(abs(sin(-v_pos.z * 0.3)) * v_vertex_color, true);
+    gl_FragColor.rgb *= hsv2rgb(abs(sin(-v_pos.z * u_spacing)) * v_vertex_color, true);
     float zbuffer = (gl_FragCoord.a + 1.0)*1.0;
     gl_FragColor.a = 1.0; //zbuffer;
+    gl_FragColor *= u_material_opacity;
+
     // gl_FragColor.a = 0.7;
 
     if(gl_FragColor.a < 0.5)
