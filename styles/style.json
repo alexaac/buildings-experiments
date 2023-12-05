@@ -4,20 +4,20 @@
   "name": "Winter",
   "sources": {
     "outdoor": {
-      "url": "https://api.maptiler.com/tiles/outdoor/tiles.json?key=wSVUkjoWKTD8fUSyzJd5",
+      "url": "https://api.maptiler.com/tiles/outdoor/tiles.json?key=dsQnUjvNitMWqHXZofHX",
       "type": "vector"
     },
     "contours": {
-      "url": "https://api.maptiler.com/tiles/contours/tiles.json?key=wSVUkjoWKTD8fUSyzJd5",
+      "url": "https://api.maptiler.com/tiles/contours/tiles.json?key=dsQnUjvNitMWqHXZofHX",
       "type": "vector"
     },
     "terrain-rgb": {
-      "url": "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=wSVUkjoWKTD8fUSyzJd5",
+      "url": "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=dsQnUjvNitMWqHXZofHX",
       "tileSize": 512,
       "type": "raster-dem"
     },
     "maptiler_planet": {
-      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=wSVUkjoWKTD8fUSyzJd5",
+      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=dsQnUjvNitMWqHXZofHX",
       "type": "vector"
     }
   },
@@ -3760,7 +3760,7 @@
   "metadata": {
     "maptiler:copyright": "This style was generated on MapTiler Cloud. Usage outside of MapTiler Cloud requires valid MapTiler Data Package: https://www.maptiler.com/data/package/ -- please contact us."
   },
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=wSVUkjoWKTD8fUSyzJd5",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=dsQnUjvNitMWqHXZofHX",
   "sprite": "https://api.maptiler.com/maps/winter/sprite",
   "bearing": 0,
   "pitch": 0,

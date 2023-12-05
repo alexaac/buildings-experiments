@@ -4,9 +4,9 @@ import { CustomLayer } from './models/CustomLayer.js';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiYWxleGFhYyIsImEiOiJja3o1OGdrcWUwZGN2MnRwa2xsa2pqNTI3In0.RenxXCa3uR7D7-tdvoYKGw';
-const apiKey = 'wSVUkjoWKTD8fUSyzJd5';
+const apiKey = 'dsQnUjvNitMWqHXZofHX';
 
-const center = { lng: -74.00565165636584, lat: 40.7129965903147 };
+const center = { lng: 121.3966899, lat: 25.0853151 };
 
 const longitude = center.lng,
   latitude = center.lat;
@@ -173,7 +173,8 @@ class searchControl {
     this._map = undefined;
   }
 }
-// map.addControl(new searchControl(), 'top-left');
+map.addControl(new searchControl(), 'top-left');
+document.querySelector('.maptiler-geocoder').style.visibility = 'hidden';
 
 // Time
 let time = Date.now();

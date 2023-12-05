@@ -205,3 +205,4 @@ stopBtn.addEventListener('click', (event) => {
   stopBtn.classList.add('hidden');
   cancelAnimationFrame(id);
 });
+
